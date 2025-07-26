@@ -24,17 +24,17 @@ if (flutterVersionName == null) {
 
 android {
     namespace "com.tripupnow.app"
-    compileSdk 34
+    compileSdk flutter.compileSdkVersion
 
-    ndkVersion "25.2.9519653" // Replace with your Flutter-installed NDK version
+    ndkVersion flutter.ndkVersion
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
     sourceSets {
@@ -43,8 +43,8 @@ android {
 
     defaultConfig {
         applicationId "com.tripupnow.app"
-        minSdkVersion 21
-        targetSdkVersion 34
+        minSdk flutter.minSdkVersion
+        targetSdk flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true
